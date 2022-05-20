@@ -1,22 +1,15 @@
-import { GetStaticProps } from 'next';
-import HeroHeader from '../components/Header'
+import HeroHeader, { IPropsHeader } from '../components/Header'
+import PostsCard, { IPagination } from '../components/PostsCard';
 import CallToAction from '../components/CallToAction';
 import CategoryCard from '../components/CategoryCard';
 import LastCallToAction from '../components/LastCallToAction';
-import { IPropsHeader } from '../components/Header'
-import PostsCard from '../components/PostsCard';
 import { useEffect, useState } from 'react';
 
-export interface IPagination {
-  id: number,
-  post: string,
-  title: string,
-  mainImage: string,
-}
-
-const Home = (pagination: Array<IPagination>, header: IPropsHeader) => {
+const Home = () => {
 
   const [headerData, setHeaderData] = useState<IPropsHeader>()
+  const [pagination, setPagination] = useState<Array<IPagination>>()
+  const [key, setKey] = useState<number>()
 
   const getHeaderData = async () => {
     const responseHeaderPost = await fetch('http://localhost:3333/post/last_post')
@@ -24,9 +17,18 @@ const Home = (pagination: Array<IPagination>, header: IPropsHeader) => {
     setHeaderData(response)
   }
 
+  const getPaginationData = async () => {
+    const responsePagination = await fetch('http://localhost:3333/post/init=0/limit=4')
+    const response: Array<IPagination> = await responsePagination.json()
+    setPagination(response)
+  }
+
   useEffect(() => {
     getHeaderData()
+    getPaginationData()
   }, [])
+
+  console.log(pagination, key)
 
   return (
     <>
@@ -34,7 +36,7 @@ const Home = (pagination: Array<IPagination>, header: IPropsHeader) => {
       <CallToAction />
       <CategoryCard />
       <LastCallToAction />
-      {/* <PostsCard /> */}
+      <PostsCard pagination={pagination} key={key} />
     </>
   )
 }

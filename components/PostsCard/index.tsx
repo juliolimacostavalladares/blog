@@ -1,21 +1,31 @@
-import { IPagination } from '../../pages';
 import { CardPost, CardPostContainer, Container, Title, CardPostHeader, CardPostBody, CardPostFooter, Hr } from '../../styles/PostsCard';
 
+export interface IPagination {
+    id?: number,
+    post?: string,
+    title?: string,
+    mainImage?: string,
+}
 
-const PostsCard = (pagination: Array<IPagination>) => {
-    console.log()
+interface IProps {
+    key?: number,
+    pagination?: Array<IPagination>
+}
+
+const PostsCard = ({ pagination }: IProps) => {
+
     return (
         <Container >
             <Title>Post</Title>
             <CardPostContainer>
-                {/* {pagination.map(({ id, post, title, mainImage }) => (
-                    <CardPost key={id}>
+                {pagination?.map((i) => (
+                    <CardPost key={i?.id}>
                         <CardPostHeader>
-                            <img src={mainImage} alt={title} />
+                            <img src={i?.mainImage} alt={i?.title} />
                         </CardPostHeader>
                         <CardPostBody>
-                            <h1>{title}</h1>
-                            <p>{post}</p>
+                            <h1>{i?.title}</h1>
+                            <p>{i?.post}</p>
                         </CardPostBody>
                         <CardPostFooter>
                             <Hr />
@@ -26,7 +36,7 @@ const PostsCard = (pagination: Array<IPagination>) => {
                             </div>
                         </CardPostFooter>
                     </CardPost>
-                ))} */}
+                ))}
             </CardPostContainer>
         </Container>
     )

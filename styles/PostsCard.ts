@@ -58,7 +58,7 @@ export const CardPostHeader = styled.div`
 export const CardPostBody = styled.div`
   > h1 {
       width: 325px;
-      height: 183px;
+      height: 145px;
       font-size: 33px;
       letter-spacing: 3px;
       margin: 0 20px;
@@ -75,11 +75,12 @@ export const CardPostFooter = styled.div`
   > div  {
     margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
       > span {
         cursor: pointer;
         font-size: 30px;
-        padding-right: 80px;
         color: #fff;
       }
   }
