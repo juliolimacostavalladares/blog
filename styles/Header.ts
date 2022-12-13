@@ -3,13 +3,25 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   display: table;
-  height: 100vh;
+  height: 70vh;
+  position: relative;
+`;
 
+export const Layer = styled.div`
+    background: #000000a6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    z-index: -1;
 `;
 
 export const HeroContent = styled.div`
+  z-index: 1;
+  position: relative;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,6 +36,11 @@ export const HeroContent = styled.div`
 
   > p {
     font-size: 22px;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
  >  button:hover {
@@ -48,4 +65,16 @@ export const HeroContent = styled.div`
     background: rgb(240, 240, 240)
   }
 
+`;
+
+export const Logo = styled.svg`
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  border-radius: 15px;
+  top: 15px;
+
+  cursor: pointer;
+  color: #fff;
+  background: #1E0E62;;
 `;

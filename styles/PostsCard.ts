@@ -5,6 +5,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 100px;
 `;
 
 export const Title = styled.h1`
@@ -25,8 +26,8 @@ export const CardPostContainer = styled.div`
 
 
 export const CardPost = styled.div`
-  width: 420px;
-  height: 580px;
+  width: 365px;
+  height: 300px;
   
   margin: 15px;
 
@@ -58,17 +59,27 @@ export const CardPostHeader = styled.div`
 export const CardPostBody = styled.div`
   > h1 {
       width: 325px;
-      height: 145px;
       font-size: 33px;
       letter-spacing: 3px;
       margin: 0 20px;
       color: #fff;
+
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
   }
 
   > p{
     margin: 80px 20px 0;
     font-weight: 200;
     color: #fff;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical; 
   }
 `
 export const CardPostFooter = styled.div`
@@ -86,8 +97,3 @@ export const CardPostFooter = styled.div`
   }
 
 `
-export const Hr = styled.hr`
-  margin: 55px 0 0;
-  border: 1px solid #ffffffad;
-`
-

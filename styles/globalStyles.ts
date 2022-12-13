@@ -13,6 +13,7 @@ body {
   font-family:  'Capriola', sans-serif;
   height: 100vh;
   background-color: rgb(251, 248, 248);
+  overflow-x: hidden ;
 }
 
 button {

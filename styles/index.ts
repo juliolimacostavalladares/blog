@@ -46,6 +46,3 @@ export const SubTitle = styled.h2`
   
   margin-top: 35px;
 `
-
-
-

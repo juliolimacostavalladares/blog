@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ICardProps } from '../components/CategoryCard';
 
 export const Container = styled.div`
     display: flex;
@@ -27,7 +28,7 @@ export const ContainerCard = styled.div`
   flex-wrap: wrap;
 `
 
-export const Card = styled.div`
+export const Card = styled.div<ICardProps>`
 
     position: relative;
     display: flex;
@@ -45,12 +46,13 @@ export const Card = styled.div`
     > p {
         color: white;
         font-weight: bold;
+        text-transform: capitalized;
         z-index: 1;
         font-size: 45px;
     }
 
 
-    background-image: url('https://wikiimg.tojsiabtv.com/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png');
+    background-image: url(${props => props.backgroundImage});
     background-position: center center;
 
     margin: 10px;
