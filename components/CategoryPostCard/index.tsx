@@ -9,11 +9,11 @@ export interface Post {
   author?: string,
   category?: Category,
   mainImage?: string,
-  post?: string
+  post: string
   images?: Array<string>
 }
 
-interface Category {
+export interface Category {
   id?: number,
   category?: string,
   created_at?: string,
